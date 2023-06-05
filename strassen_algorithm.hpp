@@ -100,6 +100,7 @@ namespace Strassen{
         C12 = Matrix::Add(M3,M5);
         C21 = Matrix::Add(M2,M4);
         C22 = Matrix::Add(P5,P6);
+        
         M1.clear();M2.clear();M3.clear();M4.clear();M5.clear();M6.clear();M7.clear();
         P1.clear();P2.clear();P5.clear();P6.clear();
         
