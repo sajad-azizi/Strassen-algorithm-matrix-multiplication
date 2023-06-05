@@ -8,11 +8,12 @@ namespace Matrix{
     }
     
     template<typename T> 
-    void Make_matrix(std::vector<std::vector<T> > &matrix, const int size_){
+    std::vector<std::vector<T> > Make_matrix(std::vector<std::vector<T> > &matrix, const int size_){
         matrix.resize(size_);
         for(int i = 0; i < size_; i++){
             matrix[i].resize(size_);
         }
+        return matrix;
     }
     
     template<typename T> 
@@ -49,12 +50,44 @@ namespace Matrix{
     
     template<typename T> 
     void print_matrix(std::vector<std::vector<T> > &matrix){
-        // Prints ' ' if j != n-1 else prints '\n' 
+        // Prints ' ' if j != n-1 else prints '\n' where n = matrix.size()
         for(int i = 0; i < matrix.size(); i++){
             for(int j = 0; j < matrix.size(); j++){        
                 std::cout << matrix[i][j] << " \n"[j == matrix.size()-1];
             }
         }
     }
+    
+    template<typename T> 
+     std::vector<std::vector<T> > Add(std::vector<std::vector<T> > &A, std::vector<std::vector<T> > &B){
+         
+         std::vector<std::vector<T> > C;
+         for(int i = 0; i < A.size(); i++){
+             for(int j = 0; j < A.size(); j++){
+                 
+                 C[i][j] = A[i][j] + B[i][j];
+            }
+        }
+        return C;
+        
+     }
+     
+    template<typename T> 
+     std::vector<std::vector<T> > Subtract(std::vector<std::vector<T> > &A, std::vector<std::vector<T> > &B){
+         
+         std::vector<std::vector<T> > C;
+         for(int i = 0; i < A.size(); i++){
+             for(int j = 0; j < A.size(); j++){
+                 
+                 C[i][j] = A[i][j] - B[i][j];
+            }
+        }
+        return C;
+        
+     }
+    
+    
+    
+    
     
 }
