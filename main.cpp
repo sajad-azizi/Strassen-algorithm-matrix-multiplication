@@ -13,23 +13,29 @@ constexpr dcompx I{0.0, 1.0};
 
 int main(){
 
-    //std::cout << Matrix::msqrt(2.0*I+1.0) << std::endl;
-    
     const int M = 2; // matrix size
-    int seed = time(NULL);
-    std::vector< std::vector<dcompx> > A;
-    Matrix::Make_matrix(A, M);
-    Matrix::fill_in_random_complex(A, seed);
+    int seed = 11;// time(NULL);
+    std::vector< std::vector<double> > A;
+    A = Matrix::Make_matrix(A, M);
+    Matrix::fill_in_random(A, seed);
     Matrix::print_matrix(A);
+
+    std::vector< std::vector<double> > B;
+    std::vector< std::vector<double> > C;
     
-    std::vector< std::vector<dcompx> > B;Matrix::Make_matrix(B, M);
-    std::vector< std::vector<dcompx> > C;Matrix::Make_matrix(C, M);
+    B = Matrix::Make_matrix(B, M);
+    Matrix::fill_in_random(B, seed);
+    std::cout << "print: B \n";
+    Matrix::print_matrix(B);
     
-    C = Matrix::Add(A,B);
-    
+    C = Matrix::Make_matrix(C, M);
+
+    C = Matrix::Multiplication(A,B); //Linear Matrix Multiplication
+
+    std::cout << "print: C \n";
     Matrix::print_matrix(C);
-    
-    A.clear();
+
+    A.clear(); B.clear(); C.clear();
 
     return 0;
 }

@@ -9,6 +9,7 @@ namespace Matrix{
     
     template<typename T> 
     std::vector<std::vector<T> > Make_matrix(std::vector<std::vector<T> > &matrix, const int size_){
+        
         matrix.resize(size_);
         for(int i = 0; i < size_; i++){
             matrix[i].resize(size_);
@@ -61,7 +62,7 @@ namespace Matrix{
     template<typename T> 
      std::vector<std::vector<T> > Add(std::vector<std::vector<T> > &A, std::vector<std::vector<T> > &B){
          
-         std::vector<std::vector<T> > C;
+         std::vector<std::vector<T> > C; C = Make_matrix(C, A.size());
          for(int i = 0; i < A.size(); i++){
              for(int j = 0; j < A.size(); j++){
                  
@@ -73,18 +74,37 @@ namespace Matrix{
      }
      
     template<typename T> 
-     std::vector<std::vector<T> > Subtract(std::vector<std::vector<T> > &A, std::vector<std::vector<T> > &B){
-         
-         std::vector<std::vector<T> > C;
-         for(int i = 0; i < A.size(); i++){
-             for(int j = 0; j < A.size(); j++){
-                 
-                 C[i][j] = A[i][j] - B[i][j];
+    std::vector<std::vector<T> > Subtract(std::vector<std::vector<T> > &A, std::vector<std::vector<T> > &B){
+        
+        std::vector<std::vector<T> > C;
+        C = Make_matrix(C, A.size());
+        for(int i = 0; i < A.size(); i++){
+            for(int j = 0; j < A.size(); j++){
+                
+                C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+    return C;
+
+    }
+
+    // Linear Matrix Multiplication
+    template<typename T>
+    std::vector<std::vector<T> > Multiplication(std::vector<std::vector<T> > &A, std::vector<std::vector<T> > &B){
+        
+        std::vector<std::vector<T> > C;
+        C = Make_matrix(C, A.size());
+        
+        for(int i = 0; i < A.size(); i++){// O(n^3)
+            for(int j = 0; j < A.size(); j++){
+                for(int k = 0; k < A.size(); k++){
+                    C[i][j] = C[i][j] + A[i][k] * B[k][j]; // O(1)
+                }
             }
         }
-        return C;
         
-     }
+        return C;
+    }
     
     
     
