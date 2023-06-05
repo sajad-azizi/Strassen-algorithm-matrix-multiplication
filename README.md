@@ -1,1 +1,1 @@
-# Strassen-algorithm-matrix-multiplication
+# Strassen algorithm matrix multiplication
