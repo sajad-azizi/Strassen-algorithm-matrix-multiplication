@@ -1,3 +1,17 @@
+
+Matrix size :: M*M = 4
+
+Matrix :: A 
+
+Matrix :: B 
+
+Strassen Matrix Multiplication :: C = A*B 
+Strassen Matrix Multiplication :: Time taken: 5.6e-05
+
+Linear Matrix Multiplication :: C2 = A*B 
+Linear Matrix Multiplication :: Time taken: 2e-06
+
+running is done! :)
 2	4	2.2e-05	1e-06
 4	16	3.3e-05	2e-06
 6	36	4.2e-05	3e-06
