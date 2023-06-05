@@ -1,5 +1,7 @@
 # Strassen algorithm matrix multiplication
 
+see https://en.wikipedia.org/wiki/Strassen_algorithm
+
 compile
 
 ``` 
